@@ -12,6 +12,10 @@ const db = new sqlite3.Database("./hadith_db.db");
 
 // Define routes
 
+app.get("/", (req, res) => {
+  res.send("Welcome to the IRD Hadith Database");
+});
+
 app.get("/books", (req, res) => {
   db.all("SELECT * FROM books", (err, rows) => {
     if (err) {
